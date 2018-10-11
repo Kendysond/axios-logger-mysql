@@ -1,10 +1,5 @@
 module.exports = {
-  extends: ['yoctol-base'],
-  env: {
-    node: true,
-    jest: true,
-    jasmine: true,
-  },
+  extends:  "eslint:recommended",
   rules: {
     'no-param-reassign': 'off',
   },

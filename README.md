@@ -74,7 +74,7 @@ useMysqlLogger(axios, {
 To support all of axios instances, set option `allInstances` to `true`:
 
 ```js
-useMongoLogger(axios, {
+useMysqlLogger(axios, {
   host: '',
   user: '',
   password: '',

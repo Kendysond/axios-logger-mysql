@@ -1,6 +1,6 @@
+
 const { URL } = require('url');
 const qs = require('querystring');
-
 const mysql = require('mysql');
 const mapKeys = require('lodash/mapKeys');
 const _ = require('lodash');
@@ -137,42 +137,42 @@ function buildInsertArray(selectedColumns, insertData){
   return result;
 }
 const logResponse = (
-  table, db, selectedColumns,
-  { transformRequestBody, transformResponseBody } = {},
-) => (axiosResponse) => {
-  const axiosConfig = axiosResponse.config;
-  const axiosRequest = axiosResponse.request;
+    table, db, selectedColumns,
+    { transformRequestBody, transformResponseBody } = {},
+  ) => (axiosResponse) => {
+    const axiosConfig = axiosResponse.config;
+    const axiosRequest = axiosResponse.request;
 
-  const { requestTimestamp } = axiosConfig[NAMESPACE];
-  const responseTimestamp = Date.now();
+    const { requestTimestamp } = axiosConfig[NAMESPACE];
+    const responseTimestamp = Date.now();
 
-  const request = createRequestObject({
-    axiosConfig,
-    axiosRequest,
-    transformRequestBody,
-  });
-  const response = createResponseObject({
-    axiosResponse,
-    transformResponseBody,
-  });
+    const request = createRequestObject({
+      axiosConfig,
+      axiosRequest,
+      transformRequestBody,
+    });
+    const response = createResponseObject({
+      axiosResponse,
+      transformResponseBody,
+    });
 
-  const insertData = {
-    request,
-    response,
-    error: null,
-    time: responseTimestamp - requestTimestamp,
-  };
+    const insertData = {
+      request,
+      response,
+      error: null,
+      time: responseTimestamp - requestTimestamp,
+    };
 
-  const sql = `INSERT INTO ${table} (${selectedColumns.join(",")}) VALUES ?`;
-  const insertArray = buildInsertArray(selectedColumns,insertData);
-  const values = [
-    insertArray,
-  ];
-  db.query(sql, [values], function (err, result) {
-    if (err) throw err;
-  });
-  
-  return axiosResponse;
+    const sql = `INSERT INTO ${table} (${selectedColumns.join(",")}) VALUES ?`;
+    const insertArray = buildInsertArray(selectedColumns,insertData);
+    const values = [
+      insertArray,
+    ];
+    db.query(sql, [values], function (err, result) {
+      if (err) throw err;
+    });
+    
+    return axiosResponse;
 };
 
 const logError = (table, db, selectedColumns, { transformRequestBody, transformResponseBody } = {}) => (axiosError) => {
@@ -245,6 +245,7 @@ function useMysqlLogger(
     'requestheaders', 'requestQuery', 'requestBody',
     'responseStatus', 'responseHeaders', 'responseBody', 'responseError', 'responseTime', 'createdAt'
   ];
+  
   const selectedColumns = _.difference(tableColumns, excludeColumns);
 
   axios.interceptors.request.use(logRequest(table));
