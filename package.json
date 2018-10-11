@@ -1,0 +1,30 @@
+{
+  "name": "axios-logger-mysql",
+  "version": "1.0.0",
+  "description": "An Axios interceptor that logs all axios requests and responses to a MySQL table.",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kendysond/axios-logger-mysql.git"
+  },
+  "keywords": [
+    "axios",
+    "mysql",
+    "logger",
+    "npm",
+    "logger"
+  ],
+  "author": "Douglas Kendyson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kendysond/axios-logger-mysql/issues"
+  },
+  "homepage": "https://github.com/kendysond/axios-logger-mysql#readme",
+  "dependencies": {
+    "lodash": "^4.17.11",
+    "mysql": "^2.16.0"
+  }
+}
