@@ -17,7 +17,7 @@
     "npm",
     "logger"
   ],
-  "author": "Douglas Kendyson",
+  "author": "Douglas Kendyson <kendyson@kendyson.com> (http://kendyson.com)",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/kendysond/axios-logger-mysql/issues"

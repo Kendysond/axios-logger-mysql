@@ -4,7 +4,7 @@
 
 A [Axios](https://github.com/axios/axios) interceptor that logs all axios requests and responses to a MySQL table.
 
-> Couldn't find one when I was working on a nodejs project so I ripped off [Yoctol's MongoDB version](https://github.com/Yoctol/axios-logger-mongo) and made one. Hope it helps :) 
+> Couldn't find one when I was working on a nodejs project so I built this off [Yoctol's MongoDB version](https://github.com/Yoctol/axios-logger-mongo). Hope it helps :) 
 
 ## Installation
 
